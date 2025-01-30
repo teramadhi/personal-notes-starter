@@ -1,4 +1,5 @@
 // src/App.jsx
+import React from 'react'
 import { useState } from 'react'
 import { initialNotes } from './utils/data'
 import NoteForm from './components/NoteForm'

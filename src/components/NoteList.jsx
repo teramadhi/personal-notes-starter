@@ -1,4 +1,5 @@
 // src/components/NoteList.jsx
+import React from 'react'
 import NoteItem from './NoteItem'
 
 const NoteList = ({ notes, onDelete, onArchive }) => {

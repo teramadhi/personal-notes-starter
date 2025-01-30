@@ -1,62 +1,38 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Aplikasi manajemen catatan pribadi dengan fitur arsip dan pencarian">
-    
-    <!-- Preload font utama -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Font Inter untuk antarmuka aplikasi -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Catatan Pribadi</title>
-
-    <!-- Styling dasar untuk fallback sebelum React mount -->
-    <style>
-        body {
-            background-color: #202124;
-            color: white;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        #root {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
+    
+    <!-- Gunakan CDN FontAwesome versi terbaru -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"
+    />
+    
+    <!-- Hapus referensi ke file CSS/JS yang tidak ada -->
 </head>
 <body>
-    <!-- Kontainer utama aplikasi -->
-    <div id="root" role="main">
-        <!-- Fallback konten awal -->
-        <div class="note-app__loading">
-            Memuat aplikasi...
+    <div id="root">
+        <!-- Fallback untuk loading -->
+        <div style="padding: 20px; text-align: center">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Memuat aplikasi...</p>
         </div>
     </div>
 
-    <!-- Entry point React -->
+    <!-- Script Vite akan di-inject otomatis -->
     <script type="module" src="/src/index.jsx"></script>
 
-    <!-- Fallback untuk non-JavaScript -->
     <noscript>
-        <div class="note-app__noscript">
-            <h1>⚠️ JavaScript Diperlukan</h1>
-            <p>Mohon aktifkan JavaScript untuk menggunakan aplikasi ini.</p>
-            <p>Teknologi yang digunakan:</p>
-            <ul>
-                <li>ReactJS - Library JavaScript utama</li>
-                <li>Vite - Build tool modern</li>
-                <li>CSS3 - Styling antarmuka</li>
-            </ul>
+        <div style="padding: 20px; color: red">
+            <h2>⚠️ JavaScript Diperlukan!</h2>
+            <p>Mohon aktifkan JavaScript untuk menggunakan aplikasi ini</p>
         </div>
     </noscript>
-
-    <!-- Ikon FontAwesome (opsional) -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
