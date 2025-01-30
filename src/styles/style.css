@@ -1,94 +1,75 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #202124;
-  color: #fff;
   font-family: 'Inter', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  margin: 0;
-  padding: 16px;
+  background-color: #202124;
+  color: white;
 }
 
 input, textarea {
+  padding: 12px;
+  margin: 12px 0;
+  font-family: 'Inter', sans-serif;
   background-color: transparent;
+  color: white;
   border: 1px solid #aaa;
   border-radius: 4px;
-  margin: 12px 0;
-  padding: 12px;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
 }
 
 input::placeholder, textarea::placeholder {
   color: #aaa;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .note-app__header {
-  align-items: center;
-  border-bottom: 1px solid #aaa;
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: 4px 16px;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  border-bottom: 1px solid #aaa;
 }
 
 .note-app__header h1 {
-  color: #fff;
-  flex: 1 1;
   margin: 8px 0;
-  text-align: center;
+  flex: 1;
+  color: white;
 }
 
+
 .note-app__body {
-  margin: 16px auto;
   max-width: 1000px;
+  margin: 16px auto;
   padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #2a2b2e;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .note-app__body h2 {
-  font-weight: 400;
+  font-weight: normal;
   margin: 16px 0;
 }
 
 .note-input {
-  margin: 0 auto 48px;
+  margin: 0 auto;
   max-width: 500px;
-  background-color: #333;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 48px;
 }
 
 .note-input input, .note-input textarea {
   display: block;
   width: 100%;
-  margin-bottom: 12px;
 }
 
 .note-input__title {
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .note-input__title__char-limit {
-  color: #aaa;
   font-size: 14px;
   text-align: right;
+  color: #aaa;
 }
 
 .note-input__body {
@@ -96,59 +77,55 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-input button {
+  display: block;
+  width: 100%;
+  padding: 8px;
   background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  color: white;
   border: 1px solid #aaa;
   border-radius: 4px;
-  color: #fff;
+  font-weight: bold;
   cursor: pointer;
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  padding: 8px;
-  width: 100%;
 }
 
 .notes-list {
   display: grid;
-  gap: 16px;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(min-content, max-content);
+  gap: 16px;
   margin-bottom: 48px;
-  width: 100%;
 }
 
 .notes-list__empty-message {
-  color: #aaa;
   text-align: center;
+  color: #aaa;
 }
 
 .note-item {
   border: 1px solid #aaa;
   border-radius: 4px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  background-color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .note-item__content {
-  flex: 1 1;
   padding: 12px;
+  flex: 1;
 }
 
 .note-item__title {
-  margin-bottom: 4px;
-  overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
-  font-weight: bold;
+  margin-bottom: 4px;
 }
 
 .note-item__date {
-  color: #aaa;
   font-size: 12px;
   margin-bottom: 8px;
+  color: #aaa;
 }
 
 .note-item__body {
@@ -159,16 +136,16 @@ input::placeholder, textarea::placeholder {
   display: flex;
 }
 
-.note-item__archive-button, .note-item__delete-button {
+.note-item__delete-button,.note-item__archive-button {
+  display: block;
+  width: 100%;
   background-color: transparent;
   border: 0;
   border-top: 1px solid #aaa;
-  cursor: pointer;
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
   padding: 8px 0;
-  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .note-item__delete-button {
@@ -204,7 +181,7 @@ input::placeholder, textarea::placeholder {
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 800px) {
   .notes-list {
     grid-template-columns: repeat(4, 1fr);
   }
