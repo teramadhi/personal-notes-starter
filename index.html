@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id"> <!-- Menggunakan bahasa Indonesia -->
+<html lang="id">
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -8,17 +8,57 @@
     
     <!-- Preconnect untuk optimasi performa -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
-    <title>Aplikasi Catatan Pribadi</title> <!-- Judul aplikasi -->
+    <title>Aplikasi Catatan Pribadi</title>
 </head>
-<body>
-    <!-- Element root untuk mounting React -->
-    <div id="root" role="main"></div>
+<body class="clickup-chrome-ext_installed">
+    <div id="root" role="main">
+        <div class="note-app__header">
+            <h1>Notes</h1>
+            <div class="note-search">
+                <input type="text" placeholder="Cari catatan ..." value="">
+            </div>
+        </div>
+        <div class="note-app__body">
+            <div class="note-input">
+                <h2>Buat catatan</h2>
+                <form>
+                    <p class="note-input__title__char-limit">Sisa karakter: 50</p>
+                    <input class="note-input__title" type="text" placeholder="Ini adalah judul ..." required="" value="">
+                    <textarea class="note-input__body" type="text" placeholder="Tuliskan catatanmu di sini ..." required=""></textarea>
+                    <button type="submit">Buat</button>
+                </form>
+            </div>
+            <h2>Catatan Aktif</h2>
+            <div class="notes-list">
+                <div class="note-item">
+                    <div class="note-item__content">
+                        <h3 class="note-item__title">Babel</h3>
+                        <p class="note-item__date">Kamis, 14 April 2022</p>
+                        <p class="note-item__body">Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.</p>
+                    </div>
+                    <div class="note-item__action">
+                        <button class="note-item__delete-button">Delete</button>
+                        <button class="note-item__archive-button">Arsipkan</button>
+                    </div>
+                </div>
+                <!-- ...additional note items... -->
+            </div>
+            <h2>Arsip</h2>
+            <p class="notes-list__empty-message">Tidak ada catatan</p>
+        </div>
+    </div>
     
-    <!-- Script entry point React -->
     <script type="module" src="/src/index.jsx"></script>
+    <script type="module">
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import App from '/src/App.jsx';
 
-    <!-- Fallback untuk browser tanpa JavaScript -->
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
     <noscript>
         <h1>Mohon aktifkan JavaScript untuk menjalankan aplikasi ini</h1>
         <p>Aplikasi ini dibangun menggunakan ReactJS dan membutuhkan JavaScript untuk berfungsi dengan baik.</p>
