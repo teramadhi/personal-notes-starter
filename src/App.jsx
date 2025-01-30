@@ -1,20 +1,21 @@
 // src/App.jsx
-import React from 'react'
 import { useState } from 'react'
-import { initialNotes } from './utils/data'
+import React from 'react';
+import { initialNotes } from './utils/data' // Impor data awal
 import NoteForm from './components/NoteForm'
 import SearchBar from './components/SearchBar'
 import NoteList from './components/NoteList'
 
 function App() {
-  // State management untuk aplikasi
+  // State untuk menyimpan data catatan
   const [notes, setNotes] = useState(initialNotes)
+  // State untuk pencarian
   const [searchQuery, setSearchQuery] = useState('')
 
   // Fungsi untuk menambahkan catatan baru
   const addNote = (title, body) => {
     const newNote = {
-      id: +new Date(),
+      id: +new Date(), // Generate ID unik
       title,
       body,
       archived: false,
@@ -40,32 +41,31 @@ function App() {
     note.title.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
+  // Pisahkan catatan aktif dan arsip
+  const activeNotes = filteredNotes.filter(note => !note.archived)
+  const archivedNotes = filteredNotes.filter(note => note.archived)
+
   return (
-    <div className="note-app">
-      <header className="note-app__header">
-        <h1>Aplikasi Catatan Pribadi</h1>
-      </header>
+    <div className="App">
+      <h1>Aplikasi Catatan Pribadi</h1>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <NoteForm addNote={addNote} />
       
-      <main className="note-app__body">
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <NoteForm addNote={addNote} />
-        
-        <h2>Catatan Aktif</h2>
-        <NoteList 
-          notes={filteredNotes.filter(note => !note.archived)} 
-          onDelete={deleteNote}
-          onArchive={toggleArchive}
-        />
-        
-        <h2>Arsip Catatan</h2>
-        <NoteList 
-          notes={filteredNotes.filter(note => note.archived)} 
-          onDelete={deleteNote}
-          onArchive={toggleArchive}
-        />
-      </main>
+      <h2>Catatan Aktif</h2>
+      <NoteList 
+        notes={activeNotes} 
+        onDelete={deleteNote}
+        onArchive={toggleArchive}
+      />
+      
+      <h2>Catatan Arsip</h2>
+      <NoteList 
+        notes={archivedNotes} 
+        onDelete={deleteNote}
+        onArchive={toggleArchive}
+      />
     </div>
-  )
+  );
 }
 
 export default App

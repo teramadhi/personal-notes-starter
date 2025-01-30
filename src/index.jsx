@@ -1,17 +1,13 @@
-// src/index.jsx
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App' // Import komponen utama App
+import App from './App'
 
-// Import stylesheet global
+// import style
 import './styles/style.css';
 
-// Membuat root element untuk React DOM
 const root = createRoot(document.getElementById('root'));
-
-// Render aplikasi ke DOM dengan Strict Mode
 root.render(
     <React.StrictMode>
-        <App /> {/* Komponen utama aplikasi */}
+        <App />
     </React.StrictMode>
 );
