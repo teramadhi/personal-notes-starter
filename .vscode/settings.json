@@ -1,0 +1,5 @@
+{
+    "livePreview.defaultPreviewPath": "/index.html",
+    "livePreview.port": 5173,
+    "livePreview.serverPort": 5173
+}
