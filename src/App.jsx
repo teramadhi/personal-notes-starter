@@ -1,6 +1,5 @@
 // src/App.jsx
-import { useState } from 'react'
-import React from 'react';
+import React, { useState } from 'react';
 import { initialNotes } from './utils/data' // Impor data awal
 import NoteForm from './components/NoteForm'
 import SearchBar from './components/SearchBar'
@@ -51,21 +50,27 @@ function App() {
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <NoteForm addNote={addNote} />
       
-      <h2>Catatan Aktif</h2>
-      <NoteList 
-        notes={activeNotes} 
-        onDelete={deleteNote}
-        onArchive={toggleArchive}
-      />
-      
-      <h2>Catatan Arsip</h2>
-      <NoteList 
-        notes={archivedNotes} 
-        onDelete={deleteNote}
-        onArchive={toggleArchive}
-      />
+      {notes.length === 0 ? (
+        <p>Tidak ada catatan</p>
+      ) : (
+        <>
+          <h2>Catatan Aktif</h2>
+          <NoteList 
+            notes={activeNotes} 
+            onDelete={deleteNote}
+            onArchive={toggleArchive}
+          />
+          
+          <h2>Catatan Arsip</h2>
+          <NoteList 
+            notes={archivedNotes} 
+            onDelete={deleteNote}
+            onArchive={toggleArchive}
+          />
+        </>
+      )}
     </div>
   );
 }
 
-export default App
+export default App;

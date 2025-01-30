@@ -1,5 +1,5 @@
 {
     "livePreview.defaultPreviewPath": "/index.html",
-    "livePreview.port": 5173,
-    "livePreview.serverPort": 5173
+    "livePreview.port": 5173, // Update this to match your dev server port
+    "livePreview.serverPort": 5173 // Update this to match your dev server port
 }
