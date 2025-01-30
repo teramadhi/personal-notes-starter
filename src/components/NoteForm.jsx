@@ -16,26 +16,32 @@ const NoteForm = ({ addNote }) => {
     setBody('')
   }
 
-  return (
-    <form className="note-form" onSubmit={handleSubmit}>
-      <div className="note-form__char-limit">
-        Sisa karakter: {maxTitleLength - title.length}
-      </div>
-      <input
-        type="text"
-        className="note-form__title"
-        placeholder="Judul catatan..."
-        value={title}
-        onChange={(e) => setTitle(e.target.value.slice(0, maxTitleLength))}
-      />
-      <textarea
-        className="note-form__body"
-        placeholder="Isi catatan..."
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-      />
-      <button type="submit">Buat Catatan</button>
-    </form>
+  return (  
+    <form className="note-form" onSubmit={handleSubmit}>  
+      <div className="note-form__char-limit">  
+        Sisa karakter: {maxTitleLength - title.length}  
+      </div>  
+      <div>  
+        <input  
+          type="text"  
+          className="note-form__title"  
+          placeholder="Judul catatan..."  
+          value={title}  
+          onChange={(e) => setTitle(e.target.value.slice(0, maxTitleLength))}  
+        />  
+      </div>  
+      <div>  
+        <textarea  
+          className="note-form__body"  
+          placeholder="Isi catatan..."  
+          value={body}  
+          onChange={(e) => setBody(e.target.value)}  
+        />  
+      </div>  
+      <div>  
+        <button type="submit">Buat Catatan</button>  
+      </div>  
+    </form>  
   )
 }
 
