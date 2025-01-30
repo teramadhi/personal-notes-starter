@@ -1,20 +1,19 @@
 // src/App.jsx
 import { useState } from 'react'
-import { initialNotes } from './utils/data' // Impor data awal
+import { initialNotes } from './utils/data'
 import NoteForm from './components/NoteForm'
 import SearchBar from './components/SearchBar'
 import NoteList from './components/NoteList'
 
 function App() {
-  // State untuk menyimpan data catatan
+  // State management untuk aplikasi
   const [notes, setNotes] = useState(initialNotes)
-  // State untuk pencarian
   const [searchQuery, setSearchQuery] = useState('')
 
   // Fungsi untuk menambahkan catatan baru
   const addNote = (title, body) => {
     const newNote = {
-      id: +new Date(), // Generate ID unik
+      id: +new Date(),
       title,
       body,
       archived: false,
@@ -40,29 +39,30 @@ function App() {
     note.title.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  // Pisahkan catatan aktif dan arsip
-  const activeNotes = filteredNotes.filter(note => !note.archived)
-  const archivedNotes = filteredNotes.filter(note => note.archived)
-
   return (
-    <div className="app">
-      <h1>Aplikasi Catatan Pribadi</h1>
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <NoteForm addNote={addNote} />
+    <div className="note-app">
+      <header className="note-app__header">
+        <h1>Aplikasi Catatan Pribadi</h1>
+      </header>
       
-      <h2>Catatan Aktif</h2>
-      <NoteList 
-        notes={activeNotes} 
-        onDelete={deleteNote}
-        onArchive={toggleArchive}
-      />
-      
-      <h2>Catatan Arsip</h2>
-      <NoteList 
-        notes={archivedNotes} 
-        onDelete={deleteNote}
-        onArchive={toggleArchive}
-      />
+      <main className="note-app__body">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <NoteForm addNote={addNote} />
+        
+        <h2>Catatan Aktif</h2>
+        <NoteList 
+          notes={filteredNotes.filter(note => !note.archived)} 
+          onDelete={deleteNote}
+          onArchive={toggleArchive}
+        />
+        
+        <h2>Arsip Catatan</h2>
+        <NoteList 
+          notes={filteredNotes.filter(note => note.archived)} 
+          onDelete={deleteNote}
+          onArchive={toggleArchive}
+        />
+      </main>
     </div>
   )
 }
