@@ -75,12 +75,14 @@ h1 {
 
 .note-search {
   color: var(--text-color);
+  flex-grow: 1;
 }
 
 .search-bar {
   background-color: var(--input-bg-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
+  width: 100%;
 }
 
 /* Gaya Header */
@@ -143,7 +145,7 @@ h1 {
   border-radius: 5px;
 }
 
-.note-form__body {
+#note-body {
   min-height: 100px;
 }
 
@@ -241,6 +243,7 @@ h1 {
   font-size: 14px;
   user-select: text;
   color: var(--text-color);
+  min-height: 200px;
 }
 
 .note-item__action {
