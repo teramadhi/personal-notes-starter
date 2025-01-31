@@ -18,12 +18,12 @@ body {
 }
 
 body.light-mode {
-  --background-color: rgb(241, 241, 241);
+  --background-color: #f1f1f1;
   --text-color: black;
   --border-color: #ccc;
   --input-bg-color: #f9f9f9;
   --input-placeholder-color: #aaa;
-  --body-bg-color: white;
+  --body-bg-color: #f8f8f8;
   --note-input-bg-color: #f9f9f9;
   --delete-button-color: #ff0000;
   --archive-button-color: #c46f00;
@@ -34,7 +34,7 @@ body.light-mode {
 body.dark-mode {
   --background-color: #1d1d1d;
   --text-color: #ffffff;
-  --border-color: #333333;
+  --border-color: #888888;
   --input-bg-color: #2b2b2b;
   --input-placeholder-color: #555555;
   --body-bg-color: #222222;
