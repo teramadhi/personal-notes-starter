@@ -1,54 +1,28 @@
-// src/App.jsx
 import React, { useState } from 'react';
-import { initialNotes } from './utils/data';
 import NoteForm from './components/NoteForm';
-import SearchBar from './components/SearchBar';
 import NoteList from './components/NoteList';
-import './styles/style.css';
+import SearchBar from './components/SearchBar';
+
+const initialNotes = [
+  {
+    id: 1,
+    title: "Babel",
+    body: "Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.",
+    archived: false,
+    createdAt: '2022-04-14T04:27:34.572Z'
+  },
+  // Tambahkan data awal lainnya jika diperlukan
+];
 
 /**
  * Komponen utama aplikasi catatan.
- * 
- * @component
- * @returns {JSX.Element} Elemen JSX yang mewakili aplikasi catatan.
- * 
- * @example
- * return (
- *   <App />
- * )
- * 
- * @description
- * Komponen ini mengelola catatan dengan fitur pencarian, penambahan, penghapusan, dan pengarsipan catatan.
- * 
- * @function
- * @name App
- * 
- * @property {Array} notes - Daftar catatan yang dikelola oleh aplikasi.
- * @property {Function} setNotes - Fungsi untuk memperbarui daftar catatan.
- * @property {string} searchQuery - Query pencarian untuk memfilter catatan.
- * @property {Function} setSearchQuery - Fungsi untuk memperbarui query pencarian.
- * 
- * @method
- * @name addNote
- * @description Menambahkan catatan baru ke daftar catatan.
- * @param {string} title - Judul catatan.
- * @param {string} body - Isi catatan.
- * 
- * @method
- * @name deleteNote
- * @description Menghapus catatan berdasarkan ID.
- * @param {number} id - ID catatan yang akan dihapus.
- * 
- * @method
- * @name toggleArchive
- * @description Mengubah status arsip catatan berdasarkan ID.
- * @param {number} id - ID catatan yang akan diubah status arsipnya.
- * 
- * @property {Array} filteredNotes - Daftar catatan yang difilter berdasarkan query pencarian.
- * @property {Array} activeNotes - Daftar catatan yang tidak diarsipkan.
- * @property {Array} archivedNotes - Daftar catatan yang diarsipkan.
+ *
+ * @param {Object} props - Properti yang diterima oleh komponen.
+ * @param {Function} props.toggleDarkMode - Fungsi untuk mengubah mode gelap.
+ * @param {boolean} props.isDarkMode - Status mode gelap saat ini.
+ * @returns {JSX.Element} Elemen utama aplikasi catatan.
  */
-function App() {
+function App({ toggleDarkMode, isDarkMode }) {
   const [notes, setNotes] = useState(initialNotes);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -81,14 +55,19 @@ function App() {
   const archivedNotes = filteredNotes.filter(note => note.archived);
 
   return (
-    <div id="root">
-      <div className="note-app__header">
-        <h1>Notes</h1>
+    <main>
+      <header className="note-app__header">
+        <h1>Catatan</h1>
         <div className="note-search">
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
+      </header>
+      <div id="container_toolbar">
+        <button id="theme-toggle" onClick={toggleDarkMode}>
+          {isDarkMode ? 'Normal Mode' : 'Dark Mode'}
+        </button>
       </div>
-      <div className="note-app__body">
+      <section className="note-app__body">
         <div className="note-input">
           <h2>Buat catatan</h2>
           <NoteForm addNote={addNote} />
@@ -109,8 +88,8 @@ function App() {
             onArchive={toggleArchive}
           />
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

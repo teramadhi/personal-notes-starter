@@ -1,34 +1,33 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-
-// import style
 import './styles/style.css';
-
-/**
- * Data awal yang berisi informasi tentang beberapa item.
- * @type {Array<Object>}
- * @property {number} id - ID unik dari item.
- * @property {string} title - Judul dari item.
- * @property {string} body - Deskripsi atau isi dari item.
- * @property {boolean} archived - Status apakah item diarsipkan atau tidak.
- * @property {string} createdAt - Tanggal dan waktu pembuatan item dalam format ISO 8601.
- */
-const initialData = [
-  {
-    id: 1,
-    title: "Babel",
-    body: "Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.",
-    archived: false,
-    createdAt: '2022-04-14T04:27:34.572Z'
-  },
-  // ...other initial data...
-];
+import './styles/dark-mode.css';
 
 function Main() {
-  const [notes, setNotes] = useState(initialData);
+  // Menggunakan state untuk menyimpan mode gelap atau terang
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark-mode';
+  });
 
-  return <App notes={notes} setNotes={setNotes} />;
+  // Menggunakan useEffect untuk mengubah tema saat isDarkMode berubah
+  useEffect(() => {
+    const theme = isDarkMode ? 'dark-mode' : 'light-mode';
+    document.body.classList.remove('light-mode', 'dark-mode');
+    document.body.classList.add(theme);
+    localStorage.setItem('theme', theme);
+  }, [isDarkMode]);
+
+  // Fungsi untuk mengganti mode gelap atau terang
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  // Merender komponen App dengan properti toggleDarkMode dan isDarkMode
+  return <App toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />;
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+// Mendapatkan elemen root dari DOM dan merender komponen Main
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Main />);

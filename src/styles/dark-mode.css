@@ -1,0 +1,98 @@
+/* Dark Mode Colors */
+:root {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --border-color: #333333;
+  --input-bg-color: #1e1e1e;
+  --input-placeholder-color: #555555;
+  --body-bg-color: #121212;
+  --note-input-bg-color: #1e1e1e;
+  --body-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --font-family: 'Inter', sans-serif;
+  --delete-button-color: #ff5555;
+  --archive-button-hover-color: #c49000;
+  --delete-button-hover-color: #b00020;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.note-input__title,
+.note-input__body {
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.note-input__title::placeholder,
+.note-input__body::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+/* Tambahkan gaya untuk elemen lain yang ingin Anda ubah warnanya */
+.note-item {
+  background-color: var(--note-input-bg-color);
+  color: var(--text-color);
+}
+
+.note-item__title {
+  color: var(--text-color);
+}
+
+.note-item__date {
+  color: var(--input-placeholder-color);
+}
+
+.note-item__body {
+  color: var(--text-color);
+}
+
+.note-item__delete-button {
+  color: var(--delete-button-color);
+}
+
+.note-item__archive-button {
+  color: var(--archive-button-color);
+}
+
+.note-item__archive-button:hover {
+  color: var(--archive-button-hover-color);
+}
+
+.note-item__delete-button:hover {
+  color: var(--delete-button-hover-color);
+}
+
+h1 {
+  color: var(--text-color);
+}
+
+.note-search {
+  color: var(--text-color);
+}
+
+.search-bar {
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.note-app__body {
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+}
+
+.note-body {
+  color: var(--text-color);
+}
+
+.notes-list {
+  background-color: var(--note-input-bg-color);
+  color: var(--text-color);
+}
+
+.notes-list__empty-message {
+  color: var(--input-placeholder-color);
+}
