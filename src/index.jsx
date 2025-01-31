@@ -5,6 +5,15 @@ import App from './App';
 // import style
 import './styles/style.css';
 
+/**
+ * Data awal yang berisi informasi tentang beberapa item.
+ * @type {Array<Object>}
+ * @property {number} id - ID unik dari item.
+ * @property {string} title - Judul dari item.
+ * @property {string} body - Deskripsi atau isi dari item.
+ * @property {boolean} archived - Status apakah item diarsipkan atau tidak.
+ * @property {string} createdAt - Tanggal dan waktu pembuatan item dalam format ISO 8601.
+ */
 const initialData = [
   {
     id: 1,

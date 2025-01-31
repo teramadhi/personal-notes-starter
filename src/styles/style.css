@@ -1,21 +1,23 @@
-/* Define CSS Variables */
+/* Mendefinisikan Variabel CSS */
 :root {
   --background-color: #202124;
   --text-color: #fff;
   --border-color: #aaa;
   --input-bg-color: transparent;
   --input-placeholder-color: #aaa;
-  --header-bg-color: #2a2b2e;
+  --body-bg-color: #2a2b2e;
   --note-input-bg-color: #333;
-  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --body-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --font-family: 'Inter', sans-serif;
+  --delete-button-color: #ff5f52;
 }
 
-/* Global Styles */
+/* Gaya Global */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: text;
 }
 
 body {
@@ -24,7 +26,7 @@ body {
   font-family: var(--font-family);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align items to the start (top) */
+  align-items: flex-start;
   min-height: 100vh;
   margin: 0;
   padding: 16px;
@@ -53,36 +55,38 @@ input::placeholder, textarea::placeholder {
   font-weight: 700;
 }
 
-/* Header Styles */
+/* Gaya Header */
 .note-app__header {
-  align-items: center;
-  border-bottom: 1px solid var(--border-color);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
   padding: 4px 16px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .note-app__header h1 {
   color: var(--text-color);
-  flex: 1 1;
+  flex: 1 1 auto;
   margin: 8px 0;
-  text-align: center;
+  text-align: left;
 }
 
-/* Body Styles */
+/* Gaya Body */
 .note-app__body {
   margin: 16px auto;
   max-width: 1000px;
   padding: 12px;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--header-bg-color);
+  background-color: var(--body-bg-color);
   border-radius: 8px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--body-box-shadow);
 }
 
 .note-app__body h2 {
@@ -90,14 +94,28 @@ input::placeholder, textarea::placeholder {
   margin: 16px 0;
 }
 
-/* Note Input Styles */
+.note-search {
+  margin-left: auto;
+}
+
+/* Gaya Input Catatan */
 .note-input {
   margin: 0 auto 48px;
-  max-width: 500px;
+  width: 100%;
   background-color: var(--note-input-bg-color);
   padding: 16px;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.note-form__body {
+  min-height: 100px;
 }
 
 .note-input input, .note-input textarea {
@@ -133,11 +151,12 @@ input::placeholder, textarea::placeholder {
   width: 100%;
 }
 
+/* Gaya Daftar Catatan */
 .notes-list {
   display: grid;
   gap: 16px;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(min-content, max-content);
+  grid-auto-rows: minmax(min-content, max-content);
   margin-bottom: 48px;
   width: 100%;
 }
@@ -147,6 +166,7 @@ input::placeholder, textarea::placeholder {
   text-align: center;
 }
 
+/* Gaya Item Catatan */
 .note-item {
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -155,6 +175,8 @@ input::placeholder, textarea::placeholder {
   overflow: hidden;
   background-color: var(--note-input-bg-color);
   box-shadow: var(--box-shadow);
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .note-item__content {
@@ -178,6 +200,7 @@ input::placeholder, textarea::placeholder {
 
 .note-item__body {
   font-size: 14px;
+  user-select: text;
 }
 
 .note-item__action {
@@ -198,7 +221,7 @@ input::placeholder, textarea::placeholder {
 
 .note-item__delete-button {
   border-right: 1px solid var(--border-color);
-  color: #ff5f52;
+  color: var(--delete-button-color);
 }
 
 .note-item__archive-button {
@@ -213,19 +236,22 @@ input::placeholder, textarea::placeholder {
   color: #b00020;
 }
 
-@media only screen and (min-width: 500px) {
+/* Media Queries */
+@media only screen and (min-width: 150px) {
+  .note-search {
+    margin-right: auto;
+  } 
+}
+
+@media only screen and (min-width: 400px) {
   .notes-list {
     grid-template-columns: 1fr 1fr;
-  }
+  }  
 }
 
 @media only screen and (min-width: 800px) {
   .notes-list {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .note-search input {
-    min-width: 400px;
   }
 }
 

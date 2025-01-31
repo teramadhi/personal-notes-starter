@@ -54,3 +54,5 @@ const showFormattedDate = (date) => {
 }
 
 export { getInitialData, showFormattedDate };
+
+import './styles/style.css';

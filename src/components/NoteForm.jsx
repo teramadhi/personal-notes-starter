@@ -3,6 +3,17 @@ import { useState } from 'react'
 import React from 'react';
 
 // Komponen form untuk membuat catatan baru
+/**
+ * Komponen NoteForm digunakan untuk membuat catatan baru.
+ * 
+ * @param {Object} props - Properti yang diterima oleh komponen ini.
+ * @param {Function} props.addNote - Fungsi untuk menambahkan catatan baru.
+ * 
+ * @returns {JSX.Element} Formulir untuk membuat catatan baru.
+ * 
+ * @example
+ * <NoteForm addNote={handleAddNote} />
+ */
 const NoteForm = ({ addNote }) => {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
