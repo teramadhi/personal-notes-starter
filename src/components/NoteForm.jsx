@@ -25,7 +25,7 @@ function NoteForm({ addNote }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="note-form">
       <div className="form-group">
         <label htmlFor="note-title">Title</label>
         <input

@@ -19,7 +19,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
     />
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

@@ -1,8 +1,7 @@
 // src/components/NoteList.jsx
-import NoteItem from './NoteItem'
+import NoteItem from './NoteItem';
 import React from 'react';
 
-// Komponen untuk menampilkan daftar catatan
 /**
  * Komponen NoteList untuk menampilkan daftar catatan.
  *
@@ -28,7 +27,7 @@ const NoteList = ({ notes, onDelete, onArchive }) => {
         ))
       )}
     </div>
-  )
+  );
 }
 
-export default NoteList
+export default NoteList;

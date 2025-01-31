@@ -57,7 +57,7 @@ function App({ toggleDarkMode, isDarkMode }) {
   return (
     <main>
       <header className="note-app__header">
-        <h1>Catatan</h1>
+        <h1>Notes</h1>
         <div className="note-search">
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
