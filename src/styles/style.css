@@ -1,3 +1,17 @@
+/* Define CSS Variables */
+:root {
+  --background-color: #202124;
+  --text-color: #fff;
+  --border-color: #aaa;
+  --input-bg-color: transparent;
+  --input-placeholder-color: #aaa;
+  --header-bg-color: #2a2b2e;
+  --note-input-bg-color: #333;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,35 +19,44 @@
 }
 
 body {
-  background-color: #202124;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; /* Align items to the start (top) */
   min-height: 100vh;
   margin: 0;
   padding: 16px;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
 input, textarea {
-  background-color: transparent;
-  border: 1px solid #aaa;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   margin: 12px 0;
   padding: 12px;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  font-family: var(--font-family);
 }
 
 input::placeholder, textarea::placeholder {
-  color: #aaa;
+  color: var(--input-placeholder-color);
   font-weight: 700;
 }
 
+/* Header Styles */
 .note-app__header {
   align-items: center;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: center;
   padding: 4px 16px;
@@ -43,12 +66,13 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-app__header h1 {
-  color: #fff;
+  color: var(--text-color);
   flex: 1 1;
   margin: 8px 0;
   text-align: center;
 }
 
+/* Body Styles */
 .note-app__body {
   margin: 16px auto;
   max-width: 1000px;
@@ -56,9 +80,9 @@ input::placeholder, textarea::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #2a2b2e;
+  background-color: var(--header-bg-color);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .note-app__body h2 {
@@ -66,13 +90,14 @@ input::placeholder, textarea::placeholder {
   margin: 16px 0;
 }
 
+/* Note Input Styles */
 .note-input {
   margin: 0 auto 48px;
   max-width: 500px;
-  background-color: #333;
+  background-color: var(--note-input-bg-color);
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .note-input input, .note-input textarea {
@@ -86,7 +111,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-input__title__char-limit {
-  color: #aaa;
+  color: var(--input-placeholder-color);
   font-size: 14px;
   text-align: right;
 }
@@ -96,13 +121,13 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-input button {
-  background-color: transparent;
-  border: 1px solid #aaa;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family);
   font-weight: 700;
   padding: 8px;
   width: 100%;
@@ -118,18 +143,18 @@ input::placeholder, textarea::placeholder {
 }
 
 .notes-list__empty-message {
-  color: #aaa;
+  color: var(--input-placeholder-color);
   text-align: center;
 }
 
 .note-item {
-  border: 1px solid #aaa;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--note-input-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .note-item__content {
@@ -146,7 +171,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-item__date {
-  color: #aaa;
+  color: var(--input-placeholder-color);
   font-size: 12px;
   margin-bottom: 8px;
 }
@@ -160,19 +185,19 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-item__archive-button, .note-item__delete-button {
-  background-color: transparent;
+  background-color: var(--input-bg-color);
   border: 0;
-  border-top: 1px solid #aaa;
+  border-top: 1px solid var(--border-color);
   cursor: pointer;
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family);
   font-weight: 700;
   padding: 8px 0;
   width: 100%;
 }
 
 .note-item__delete-button {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid var(--border-color);
   color: #ff5f52;
 }
 
